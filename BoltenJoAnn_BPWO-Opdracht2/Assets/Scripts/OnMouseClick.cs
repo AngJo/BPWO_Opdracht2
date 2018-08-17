@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class OnMouseClick : MonoBehaviour {
 
     public Image img;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public GameObject messageBox;
+    public Text text;
+    public string textToDisplay;
+    private int textRead = 0;
+    // Use this for initialization
+    void Start () {
+        messageBox.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -19,16 +23,33 @@ public class OnMouseClick : MonoBehaviour {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            if (textRead == 0)
             {
-                if (hit.transform)
+                messageBox.SetActive(true);
+                text.text = textToDisplay;
+                textRead = 1;
+                if (Physics.Raycast(ray, out hit, 100.0f))
                 {
-                    Destroy(gameObject);
+                    if (hit.transform)
+                    {
+                        Destroy(gameObject);
+                    }
+
+                    
                 }
+                
             }
+            
+
+
+            
         }
-        
-	}
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            messageBox.SetActive(false);
+        }
+    }
 
     
 }

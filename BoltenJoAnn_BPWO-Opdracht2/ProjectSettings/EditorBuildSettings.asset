@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Prefabs/KanadeRoom.unity
-    guid: 0b22810e91a768846a1598d32cd8db1e
-  - enabled: 1
     path: Assets/Scenes/KanadeRoomFurniture.unity
     guid: bdb1001e4b572b749bd554ec2716249a
   - enabled: 1
